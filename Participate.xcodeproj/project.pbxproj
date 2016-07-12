@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A377E3B41D32FC1100E0475D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A377E3B11D32FC1100E0475D /* FBSDKCoreKit.framework */; };
+		A377E3B51D32FC1200E0475D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A377E3B21D32FC1100E0475D /* FBSDKLoginKit.framework */; };
+		A377E3B61D32FC1200E0475D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A377E3B31D32FC1100E0475D /* FBSDKShareKit.framework */; };
 		A387D7E81D2EFF9200AF7B46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A387D7E71D2EFF9200AF7B46 /* AppDelegate.swift */; };
 		A387D7EA1D2EFF9200AF7B46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A387D7E91D2EFF9200AF7B46 /* ViewController.swift */; };
 		A387D7ED1D2EFF9200AF7B46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A387D7EB1D2EFF9200AF7B46 /* Main.storyboard */; };
@@ -34,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A377E3B11D32FC1100E0475D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		A377E3B21D32FC1100E0475D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		A377E3B31D32FC1100E0475D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		A377E3B71D3300D000E0475D /* Participate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Participate-Bridging-Header.h"; sourceTree = "<group>"; };
 		A387D7E41D2EFF9200AF7B46 /* Participate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Participate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A387D7E71D2EFF9200AF7B46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A387D7E91D2EFF9200AF7B46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A377E3B51D32FC1200E0475D /* FBSDKLoginKit.framework in Frameworks */,
+				A377E3B41D32FC1100E0475D /* FBSDKCoreKit.framework in Frameworks */,
+				A377E3B61D32FC1200E0475D /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,9 +110,13 @@
 				A387D7E71D2EFF9200AF7B46 /* AppDelegate.swift */,
 				A387D7E91D2EFF9200AF7B46 /* ViewController.swift */,
 				A387D7EB1D2EFF9200AF7B46 /* Main.storyboard */,
+				A377E3B11D32FC1100E0475D /* FBSDKCoreKit.framework */,
+				A377E3B21D32FC1100E0475D /* FBSDKLoginKit.framework */,
+				A377E3B31D32FC1100E0475D /* FBSDKShareKit.framework */,
 				A387D7EE1D2EFF9200AF7B46 /* Assets.xcassets */,
 				A387D7F01D2EFF9200AF7B46 /* LaunchScreen.storyboard */,
 				A387D7F31D2EFF9200AF7B46 /* Info.plist */,
+				A377E3B71D3300D000E0475D /* Participate-Bridging-Header.h */,
 			);
 			path = Participate;
 			sourceTree = "<group>";
@@ -401,10 +415,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Participate",
+				);
 				INFOPLIST_FILE = Participate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = boyke.Participate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Participate/Participate-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -412,10 +433,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Participate",
+				);
 				INFOPLIST_FILE = Participate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = boyke.Participate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Participate/Participate-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -484,6 +511,7 @@
 				A387D80E1D2EFF9200AF7B46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A387D80F1D2EFF9200AF7B46 /* Build configuration list for PBXNativeTarget "ParticipateTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +520,7 @@
 				A387D8111D2EFF9200AF7B46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A387D8121D2EFF9200AF7B46 /* Build configuration list for PBXNativeTarget "ParticipateUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +529,7 @@
 				A387D8141D2EFF9200AF7B46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
