@@ -1,0 +1,6 @@
+framework module Pods_ParticipateTests {
+  umbrella header "Pods-ParticipateTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

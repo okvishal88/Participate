@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Google
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
@@ -26,12 +27,18 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         return label
     }()
     
+    let googleSignInButton: GIDSignInButton={
+        let button = GIDSignInButton()
+        return button
+    }()
+    
     let loginButton: FBSDKLoginButton = {
         let button = FBSDKLoginButton()
         button.readPermissions = ["email"]
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
     
     let showFriendsButton: UIButton = {
         let button = UIButton(type: .System)
@@ -50,7 +57,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         navigationController?.navigationBar.translucent = false
         
         view.backgroundColor = UIColor.whiteColor()
-        navigationItem.title = "Facebook Login"
+        navigationItem.title = "Participate Me"
         
         setupSubviews()
         
@@ -63,17 +70,21 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         view.addSubview(loginButton)
         view.addSubview(userImageView)
         view.addSubview(nameLabel)
-        view.addSubview(showFriendsButton)
+        view.addSubview(googleSignInButton)
+        //view.addSubview(showFriendsButton)
         
-        showFriendsButton.addTarget(self, action: "showFriends", forControlEvents: .TouchUpInside)
+        
+        
+        //showFriendsButton.addTarget(self, action: "showFriends", forControlEvents: .TouchUpInside)
         
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": userImageView]))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-80-[v0]-80-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": showFriendsButton]))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-80-[v0]-80-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": googleSignInButton]))
+        //view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-80-[v0]-80-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": showFriendsButton]))
         
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-80-[v0]-80-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": loginButton]))
         
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-8-[v0(100)]-8-[v1(30)]-8-[v2(50)]-8-[v3(44)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": userImageView, "v1": nameLabel, "v2": loginButton, "v3": showFriendsButton]))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-8-[v0(100)]-8-[v1(30)]-8-[v2(50)]-8-[v3(44)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": userImageView, "v1": nameLabel, "v2": loginButton, "v3": googleSignInButton]))
         
         loginButton.delegate = self
     }
@@ -147,7 +158,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        
+        //FBSDKLoginManager().logOut()
     }
     
     func loginButtonWillLogin(loginButton: FBSDKLoginButton!) -> Bool {
