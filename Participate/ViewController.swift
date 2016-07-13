@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Google
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     
     let userImageView: UIImageView = {
         let imageView = UIImageView()
@@ -29,6 +28,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     let googleSignInButton: GIDSignInButton={
         let button = GIDSignInButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -53,7 +53,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        GIDSignIn.sharedInstance().uiDelegate = self
         navigationController?.navigationBar.translucent = false
         
         view.backgroundColor = UIColor.whiteColor()
